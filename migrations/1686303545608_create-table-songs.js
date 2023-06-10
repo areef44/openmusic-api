@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
 
-exports.up = pgm => {
+exports.up = (pgm) => {
     pgm.createTable('songs',{
         id: {
            type: 'VARCHAR(50)',
@@ -15,11 +15,11 @@ exports.up = pgm => {
            type: 'integer',
            notNull: true,
         },
-        performer: {
+        genre: {
             type: 'VARCHAR(50)',
             notNull: true,
         },
-        genre: {
+        performer: {
             type: 'VARCHAR(50)',
             notNull: true,
         },
@@ -43,6 +43,6 @@ exports.up = pgm => {
        });
 };
 
-exports.down = pgm => {
+exports.down = (pgm) => {
     pgm.dropTable('songs');
 };

@@ -1,3 +1,5 @@
+const { mapDBToModelSongs } = require("../../utils");
+
 class SongsHandler {
     constructor(service, validator) {
       this._service = service;
@@ -27,31 +29,31 @@ class SongsHandler {
 
         const params = request.query 
 
-        const songs = await this._service.getSongs(params);
+        const song = await this._service.getSongs(params);
+
+        const songs = song.map(song => mapDBToModelSongs(song));
 
         const response = h.response({
                 status: 'success',
                 data: {
-                    songs,
+                    songs: songs,
                 },
             });
         return response;
     }
 
-    async getSongByIdHandler(request, h){
+    async getSongByIdHandler(request){
 
             const { id } = request.params;
 
             const song = await this._service.getSongById(id);
 
-            const response = h.response({
+            return {
                 status: 'success',
                 data: {
                     song,
                 },
-            });
-            return response;
-
+            };
     }
 
     async putSongByIdHandler(request, h){

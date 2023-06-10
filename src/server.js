@@ -9,7 +9,7 @@ const {AlbumsValidator} = require('./validator/albums');
 
 //Songs module
 const songs = require('./api/songs')
-const SongsService = require('./services/inMemory/SongsServices');
+const SongsService = require('./services/postgres/SongsService');
 const {SongsValidator} = require('./validator/songs');
 
 //Exceptions module
