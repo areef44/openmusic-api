@@ -1,3 +1,4 @@
+//mapDBToModel mapping
 const mapDBToModel = ({ 
     id,
     title,
@@ -16,7 +17,8 @@ const mapDBToModel = ({
     albumId : album_id,
   });
 
-  const mapDBToModelAlbums = ({
+//mapDBToModelAlbums mapping
+const mapDBToModelAlbums = ({
     id,
     name,
     year,
@@ -27,7 +29,8 @@ const mapDBToModel = ({
     songs: song
     });
 
-    const mapDBToModelSongs = ({ 
+//mapDBToModelSongs mapping
+const mapDBToModelSongs = ({ 
       id,
       title,
       year,
@@ -45,4 +48,5 @@ const mapDBToModel = ({
       albumId,
     });
 
-  module.exports = { mapDBToModel,mapDBToModelAlbums,mapDBToModelSongs };
+//exports mapping
+module.exports = { mapDBToModel,mapDBToModelAlbums,mapDBToModelSongs };

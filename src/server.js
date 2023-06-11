@@ -1,5 +1,7 @@
+//env module
 require('dotenv').config();
 
+//Hapi module
 const Hapi = require('@hapi/hapi');
 
 //Albums module
@@ -33,6 +35,7 @@ const init = async () => {
   });
 
   await server.register([
+    //register albums service dan validatornya
     {
       plugin: albums,
       options: {
@@ -40,6 +43,8 @@ const init = async () => {
           validator: albumsValidator,
       },
     },
+
+    //register songs service dan validatornya
     {
       plugin: songs,
       options: {
@@ -49,6 +54,7 @@ const init = async () => {
     },
   ]);
 
+  //konfigurasi response jika server error
   server.ext('onPreResponse', (request, h) => {
     const { response } = request;
 
@@ -79,8 +85,7 @@ const init = async () => {
     return h.continue;
   });
     
-
- 
+  //Start Server
   await server.start();
   console.log(`Server berjalan pada ${server.info.uri}`);
 };

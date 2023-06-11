@@ -1,6 +1,10 @@
+//module song handler
 const SongsHandler = require("./handler");
+
+//module routes song
 const routes = require('./routes');
 
+//plugin songs
 module.exports = {
     name: 'songs',
     version: '1.0.0',

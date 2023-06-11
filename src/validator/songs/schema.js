@@ -1,6 +1,10 @@
+//joi module
 const Joi = require('joi');
+
+//current year module
 const currentYear = new Date().getFullYear();
 
+//SongPayloadSchema Definition
 const SongPayloadSchema = Joi.object({
     title: Joi.string().required(),
     year: Joi.number().integer().min(1990).max(currentYear).required(),
@@ -10,4 +14,5 @@ const SongPayloadSchema = Joi.object({
     albumId: Joi.string(),
 });
 
+//exports song payload schema
 module.exports = { SongPayloadSchema };
